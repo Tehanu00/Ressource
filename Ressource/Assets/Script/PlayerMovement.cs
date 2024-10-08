@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Apple.ReplayKit;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
     private Vector3 direction;
+    public Rigidbody boxRb;
+    private Vector3 boxPos;
     
     // vitesse du player
     public float speed;
@@ -26,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask BoxLayer;
     public float boxCheckRadius;
     public bool boxCheck;
+    
+    // push
+    public float pushForce;
 
     // jump
     public float jumpForce;
@@ -58,15 +65,21 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        
+    
         // push une caisse
-        /*if (Input.GetKey(KeyCode.E) && boxCheck)
+        if (Input.GetKey(KeyCode.E) && boxCheck)
         {
-            boxCheck = true;
-            rb.AddForce(Vector3.right * transform.localScale.x, ForceMode.Impulse);
-        }*/
+            
+            if (direction.x > 0)
+            {
+                boxRb.AddForce(Vector3.right * pushForce, ForceMode.Impulse);
+            }
+            if (direction.x < 0)
+            {
+                boxRb.AddForce(Vector3.left * pushForce, ForceMode.Impulse);
+            }
+        }
     }
-
     private void FixedUpdate()
     {
         rb.AddForce(direction * speed, ForceMode.Impulse);
@@ -98,6 +111,10 @@ public class PlayerMovement : MonoBehaviour
 
     void BoxCheck()
     {
-        boxCheck = Physics.Raycast(transform.position, Vector3.right * transform.localScale.x, boxCheckRadius, BoxLayer);
+        boxCheck = Physics.Raycast(transform.position, Vector3.right * transform.localScale.x, out RaycastHit hit,boxCheckRadius, BoxLayer);
+        if (boxCheck)
+        {
+            boxRb = hit.transform.GetComponent<Rigidbody>();
+        }
     }
 }

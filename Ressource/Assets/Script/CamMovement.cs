@@ -6,7 +6,7 @@ public class CamMovement : MonoBehaviour
 {
     public Vector3 offset;
     public Transform target;
-    public float smoothTime = 0.3f;
+    public float smoothTime = 0.1f;
     
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class CamMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothTime * Time.deltaTime);
     }

@@ -28,8 +28,10 @@ public class PlayerMovement : MonoBehaviour
     
     // object caisse check
     public LayerMask BoxLayer;
-    public float boxCheckRadius;
+    public float raycastCubeLenght;
     public bool boxCheck;
+    private Vector3 raycastDir;
+    private Vector3 lastDirection;
     
     // push
     public float pushForce;
@@ -49,8 +51,13 @@ public class PlayerMovement : MonoBehaviour
         var dir = Input.GetAxis("Horizontal");
         // faire bouger son player que en x et le reste est en 0
         direction = new Vector3(dir, 0f, 0f);
+        if (direction.magnitude > 0.9f && !Input.GetKey(KeyCode.E))
+        {
+            lastDirection = new Vector3(Mathf.RoundToInt(direction.x), 0, Mathf.RoundToInt(direction.z));
+        }
         
         // savoir si le joueur cours en appuyant sur une certaine touche
+        
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             run = true;
@@ -69,15 +76,16 @@ public class PlayerMovement : MonoBehaviour
         // push une caisse
         if (Input.GetKey(KeyCode.E) && boxCheck)
         {
-            
-            if (direction.x > 0)
+            if (boxRb.transform.parent == null)
             {
-                boxRb.AddForce(Vector3.right * pushForce, ForceMode.Impulse);
+                boxRb.transform.SetParent(transform);
+                var offset = 0.2f;
+                boxRb.transform.position += lastDirection * offset;
             }
-            if (direction.x < 0)
-            {
-                boxRb.AddForce(Vector3.left * pushForce, ForceMode.Impulse);
-            }
+        }
+        else
+        {
+            boxRb.transform.SetParent(null);
         }
     }
     private void FixedUpdate()
@@ -111,10 +119,16 @@ public class PlayerMovement : MonoBehaviour
 
     void BoxCheck()
     {
-        boxCheck = Physics.Raycast(transform.position, Vector3.right * transform.localScale.x, out RaycastHit hit,boxCheckRadius, BoxLayer);
+        raycastDir = new Vector3(Input.GetKey(KeyCode.E) ? lastDirection.x : direction.x, 0, 0);
+        boxCheck = Physics.Raycast(transform.position, raycastDir, out RaycastHit hit, raycastCubeLenght, BoxLayer);
         if (boxCheck)
         {
             boxRb = hit.transform.GetComponent<Rigidbody>();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, raycastDir * raycastCubeLenght);
     }
 }

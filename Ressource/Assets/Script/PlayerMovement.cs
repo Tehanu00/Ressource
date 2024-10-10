@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Apple.ReplayKit;
 using UnityEngine.Serialization;
@@ -74,18 +75,20 @@ public class PlayerMovement : MonoBehaviour
         }
     
         // push une caisse
-        if (Input.GetKey(KeyCode.E) && boxCheck)
+        if (Input.GetKey(KeyCode.E) && boxCheck && !Input.GetKey(KeyCode.Space))
         {
             if (boxRb.transform.parent == null)
             {
                 boxRb.transform.SetParent(transform);
                 var offset = 0.2f;
                 boxRb.transform.position += lastDirection * offset;
+                boxRb.isKinematic = true;
             }
         }
         else
         {
             boxRb.transform.SetParent(null);
+            boxRb.isKinematic = false;
         }
     }
     private void FixedUpdate()

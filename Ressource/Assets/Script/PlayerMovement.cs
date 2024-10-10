@@ -22,23 +22,25 @@ public class PlayerMovement : MonoBehaviour
     public float drag;
     public Vector3 gravity;
     
-    // ground check
-    public LayerMask groundLayer;
-    public float groundCheckRadius;
-    public bool grounded;
-    
     // object caisse check
     public LayerMask BoxLayer;
     public float raycastCubeLenght;
     public bool boxCheck;
     private Vector3 raycastDir;
     private Vector3 lastDirection;
-    
-    // push
-    public float pushForce;
 
     // jump
     public float jumpForce;
+    
+    // ground check
+    public LayerMask groundLayer;
+    public float groundCheckRadius;
+    public bool grounded;
+    
+    // wall check
+    public LayerMask wallLayer;
+    public float wallCheckRadius;
+    public bool walled;
     
     void Awake()
     {
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         var dir = Input.GetAxis("Horizontal");
         // faire bouger son player que en x et le reste est en 0
         direction = new Vector3(dir, 0f, 0f);
+        // rénitialise la position
         if (direction.magnitude > 0.9f && !Input.GetKey(KeyCode.E))
         {
             lastDirection = new Vector3(Mathf.RoundToInt(direction.x), 0, Mathf.RoundToInt(direction.z));
@@ -105,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         
         Gravity();
         Groundcheck();
+        WallCheck();
         BoxCheck();
     }
 
@@ -114,12 +118,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(gravity);
     }
     
-    // use the raycast for player object for Ground
-    void Groundcheck()
-    {
-        grounded = Physics.Raycast(transform.position, Vector3.down, groundCheckRadius, groundLayer);
-    }
-
+    // Box with a rb
     void BoxCheck()
     {
         raycastDir = new Vector3(Input.GetKey(KeyCode.E) ? lastDirection.x : direction.x, 0, 0);
@@ -128,6 +127,18 @@ public class PlayerMovement : MonoBehaviour
         {
             boxRb = hit.transform.GetComponent<Rigidbody>();
         }
+    }
+    
+    // use the raycast for player object for Ground
+    void Groundcheck()
+    {
+        grounded = Physics.Raycast(transform.position, Vector3.down, groundCheckRadius, groundLayer);
+    }
+    
+    // use the raycast for player object for Wall
+    void WallCheck()
+    {
+        walled = Physics.Raycast(transform.position, Vector3.down, wallCheckRadius, wallLayer);
     }
 
     private void OnDrawGizmos()

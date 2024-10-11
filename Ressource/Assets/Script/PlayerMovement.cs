@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     // jump
     public float jumpForce;
+    public float gravityForce;
     
     // ground check
     public LayerMask groundLayer;
@@ -72,10 +74,10 @@ public class PlayerMovement : MonoBehaviour
         }
         
         // jump on the ground of player
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        /*if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        }*/
     
         // push une caisse
         if (Input.GetKey(KeyCode.E) && boxCheck && !Input.GetKey(KeyCode.Space))

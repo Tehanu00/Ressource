@@ -1280,7 +1280,7 @@ MonoBehaviour:
     m_Bits: 64
   raycastCubeLenght: 2
   boxCheck: 0
-  jumpForce: 30
+  jumpForce: 100
   gravityForce: 0
   groundLayer:
     serializedVersion: 2

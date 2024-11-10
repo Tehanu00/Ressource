@@ -165,7 +165,7 @@ MeshRenderer:
   m_GameObject: {fileID: 39024672}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -290,7 +290,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7a57c21db2a4a7944b560efad4832920, type: 2}
-  - {fileID: 2100000, guid: 1cf8689f02cda0b47afee495de76e354, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -355,7 +354,7 @@ MeshRenderer:
   m_GameObject: {fileID: 222821982}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -482,7 +481,7 @@ MeshRenderer:
   m_GameObject: {fileID: 438308260}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -588,7 +587,7 @@ MeshRenderer:
   m_GameObject: {fileID: 440048664}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -657,7 +656,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 698340786}
   m_Father: {fileID: 0}
@@ -726,7 +725,7 @@ MeshRenderer:
   m_GameObject: {fileID: 562804280}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -968,6 +967,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -7186077197865857223, guid: 1611ed246d3dad647bf9730030162459, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3736178540831047232, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15
@@ -984,6 +987,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -3295132378145399750, guid: 1611ed246d3dad647bf9730030162459, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -2987413266347367760, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.18
@@ -994,6 +1001,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2987413266347367760, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2453250633157919802, guid: 1611ed246d3dad647bf9730030162459, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2453250633157919802, guid: 1611ed246d3dad647bf9730030162459, type: 3}
@@ -1011,6 +1022,10 @@ PrefabInstance:
     - target: {fileID: -1685891719865078292, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1685891719865078292, guid: 1611ed246d3dad647bf9730030162459, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 801814229799557716, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_LocalScale.x
@@ -1037,6 +1052,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1396585497836462404, guid: 1611ed246d3dad647bf9730030162459, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396585497836462404, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1048,6 +1067,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 1cf8689f02cda0b47afee495de76e354, type: 2}
+    - target: {fileID: 8699113132874476593, guid: 1611ed246d3dad647bf9730030162459, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8699113132874476593, guid: 1611ed246d3dad647bf9730030162459, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
@@ -1211,7 +1234,7 @@ MeshRenderer:
   m_GameObject: {fileID: 758062948}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1315,7 +1338,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7a57c21db2a4a7944b560efad4832920, type: 2}
-  - {fileID: 2100000, guid: 1cf8689f02cda0b47afee495de76e354, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1572,7 +1594,7 @@ MeshRenderer:
   m_GameObject: {fileID: 910006618}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1678,7 +1700,7 @@ MeshRenderer:
   m_GameObject: {fileID: 912974259}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1892,7 +1914,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1015588675}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1998,7 +2020,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1074634995}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2083,7 +2105,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1437994362}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2215,7 +2237,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1552170730}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2436,7 +2458,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1676352549}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2521,7 +2543,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1886781187}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1

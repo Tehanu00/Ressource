@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 21.33
   gaussianEnd:
     m_OverrideState: 1
     m_Value: 30
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 5
   scatter:
     m_OverrideState: 1
     m_Value: 0.605
@@ -124,10 +124,10 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.6192225, y: 0.7655755, z: 1, w: -0.04060914}
+    m_Value: {x: 0.6192225, y: 0.7655755, z: 1, w: -0.10602207}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.80216897, y: 0.83925647, z: 1, w: 0}
+    m_Value: {x: 0.80216897, y: 0.83925647, z: 1, w: -0.31071138}
   highlights:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: -0.37563452}
